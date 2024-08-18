@@ -91,6 +91,7 @@
 
         </tbody>
     </table>
+    {{$lists->links('pagination::tailwind')}}
 </div>
 
          </section>

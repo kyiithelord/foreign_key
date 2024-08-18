@@ -24,7 +24,7 @@ class ListController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = Category::paginate(5);
         return view('list.create',compact('categories'));
     }
 
