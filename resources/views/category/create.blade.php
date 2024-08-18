@@ -17,17 +17,26 @@
                             @csrf
                             <div class="items-center p-2 mb-2 ">
                                 <label for="name" class=" font-medium ">Name</label>
-                                <input type="text" name="name" id="name" class=" w-full border-2 rounded-lg shadow-lg font-medium">
+                                <input type="text" name="name" id="name" class=" w-full border-2 rounded-lg shadow-lg font-medium @error('name') border-red-600 @enderror " value="{{old('name')}}">
+                                @error('name')
+                                    <p class="text-red-600">{{$message}}</p>
+                                @enderror
                             </div>
 
                             <div class="items-center p-2 mb-2 ">
                                 <label for="description" class=" font-medium ">Description</label>
-                                <input type="text" name="description" id="description" class=" w-full border-2 rounded-lg shadow-lg font-medium">
+                                <input type="text" name="description" id="description" class=" w-full border-2 rounded-lg shadow-lg font-medium @error('description') border-red-600 @enderror" value="{{old('description')}}" >
+                                @error('description')
+                                    <p class="text-red-600"> {{$message}} </p>
+                                @enderror
                             </div>
 
                             <div class="items-center p-2 mb-2 ">
                                 <label for="year" class=" font-medium ">Year</label>
-                                <input type="text" name="year" id="year" class=" w-full border-2 rounded-lg shadow-lg font-medium">
+                                <input type="text" name="year" id="year" class=" w-full border-2 rounded-lg shadow-lg font-medium @error('year') border-red-600 @enderror " value="{{old('year')}}">
+                                @error('year')
+                                    <p class="text-red-600"> {{$message}} </p>
+                                @enderror
                             </div>
 
 

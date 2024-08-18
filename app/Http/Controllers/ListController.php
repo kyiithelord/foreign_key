@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreListRequest;
 Use App\Models\Category;
 use App\Models\Llist;
 use Illuminate\Http\Request;
@@ -30,8 +31,15 @@ class ListController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreListRequest $request)
     {
+        // $request->validate([
+        //     'name'=> 'required',
+        //     'club'=>'required',
+        //     'country'=>'required',
+        //     'trophy'=> 'required',
+        //     'status' => 'required'
+        // ]);
         $list = new Llist();
         $list->name = $request->name;
         $list->club = $request->club;

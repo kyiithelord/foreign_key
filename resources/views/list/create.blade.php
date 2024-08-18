@@ -17,28 +17,43 @@
                     @csrf
                     <div class="items-center p-2 mb-2 ">
                         <label for="name" class=" font-medium ">Name</label>
-                        <input type="text" name="name" id="name" class=" w-full border-2 rounded-lg shadow-lg font-medium">
+                        <input type="text" name="name" id="name" class=" w-full border-2 rounded-lg shadow-lg font-medium @error('name') border-red-600 @enderror " value="{{old('name')}}">
+                        @error('name')
+                            <p class="text-red-600"> {{$message}} </p>
+                        @enderror
                     </div>
 
                     <div class="items-center p-2 mb-2 ">
                         <label for="club" class=" font-medium ">Club</label>
-                        <input type="text" name="club" id="club" class=" w-full border-2 rounded-lg shadow-lg font-medium">
+                        <input type="text" name="club" id="club" class=" w-full border-2 rounded-lg shadow-lg font-medium @error('club') border-red-600 @enderror" value="{{old('club')}}">
+                        @error('club')
+                            <p class="text-red-600"> {{$message}} </p>
+                        @enderror
                     </div>
 
                     <div class="items-center p-2 mb-2 ">
                         <label for="country" class=" font-medium ">Match</label>
-                        <input type="text" name="country" id="country" class=" w-full border-2 rounded-lg shadow-lg font-medium">
+                        <input type="text" name="country" id="country" class=" w-full border-2 rounded-lg shadow-lg font-medium @error('country') border-red-600 @enderror " value="{{old('country')}}">
+                        @error('country')
+                            <p class="text-red-600"> {{$message}} </p>
+                        @enderror
                     </div>
 
                     <div class="items-center p-2 mb-2 ">
                         <label for="trophp" class=" font-medium ">Trophy</label>
-                        <input type="text" name="trophy" id="trophy" class=" w-full border-2 rounded-lg shadow-lg font-medium">
+                        <input type="text" name="trophy" id="trophy" class=" w-full border-2 rounded-lg shadow-lg font-medium @error('trophy') border-red-600 @enderror " value="{{old('trophy')}}">
+                        @error('trophy')
+                            <p class="text-red-600"> {{$message}} </p>
+                        @enderror
                     </div>
 
                     <div class="mb-4">
                             <label for="countries" class="block mb-2 text-xl font-medium text-gray-900 dark:text-white">Select A Trophy You Like</label>
                             <select id="countries" name="category_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Choose Trophy</option>
+                                @error('choose trophy')
+                                    <p class="text-red-600"> {{$message}} </p>
+                                @enderror
                                 @foreach ($categories as $category)
                                  <option value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach
